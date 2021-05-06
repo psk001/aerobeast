@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 import os
 #from dotenv import load_dotenv 
@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6gprbo4@*q^@0!l8*ofd0accgvgem=%fpy35khs!@irfg9bt)*'
+SECRET_KEY = 'HTy3LMCxoWK0A3w84w-5lzRy-I39mDtSaPb4g4Yeoe8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -176,6 +176,6 @@ LOGOUT_REDIRECT_URL = 'home' #
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
+django_heroku.settings(locals())
 
 
