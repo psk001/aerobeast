@@ -34,9 +34,7 @@ SECRET_KEY = 'HTy3LMCxoWK0A3w84w-5lzRy-I39mDtSaPb4g4Yeoe8'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-ALLOWED_HOSTS = ['https://aerobeast.herokuapp.com', '.herokuapp.com', 'localhost', '127.0.0.1']
-
-#ALLOWED_HOSTS = [] #['localhost',]
+ALLOWED_HOSTS = ['https://aerobeast.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
