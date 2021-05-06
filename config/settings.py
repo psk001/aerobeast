@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import django_heroku
 from pathlib import Path
 import os
+import dj_database_url 
 #from dotenv import load_dotenv 
 #import environ 
 
@@ -33,7 +34,7 @@ SECRET_KEY = 'HTy3LMCxoWK0A3w84w-5lzRy-I39mDtSaPb4g4Yeoe8'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://aerobeast.herokuapp.com', '.herokuapp.com', 'localhost', '127.0.0.1']
 
 #ALLOWED_HOSTS = [] #['localhost',]
 
@@ -52,10 +53,11 @@ INSTALLED_APPS = [
 
     #third party apps
     'crispy_forms',
-    #'herokuapp',
+    'herokuapp',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -175,6 +177,9 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home' #
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 django_heroku.settings(locals())
 
