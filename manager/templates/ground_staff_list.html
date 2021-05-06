@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Ground Staff List</h1>
+    <div class="table-responsive">
+    <table class="table table-hover ">
+        <thead class="thead-dark">
+            <th>Employee Code </th>
+            <th>Employee Name</th>
+            <th>Airline</th>
+            <th>Employee Age </th>
+            <th>Contact</th>
+        </thead>
+    
+    {% for flt in ground_staff_list %}
+        <tbody>
+            <tr><td>  {{ flt.ground_staff_id }}      </td> 
+                <td>  {{ flt.ground_staff_name }}    </td> 
+                <td>  {{ flt.ground_staff_airline.airline_name }}     </td> 
+                <td>  {{ flt.ground_staff_age }}     </td> 
+                <td>  {{ flt.ground_staff_contact }}   </td> 
+            </tr>
+            
+    {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock content %}
+

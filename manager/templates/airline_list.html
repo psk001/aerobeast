@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br><br>
+<h1>All Airlines</h1>
+<div class="table-responsive">
+<table class="table table-hover ">
+   <thead class="thead-dark">
+        <tr>
+            <th>Airline Code</th>
+            <th>Airline Name</th>
+            <th>Airline Employees</th>
+            <th>Airline Flight Count</th>
+
+            {% if user.is_superuser %}
+            <th> Details  </th>
+            {% endif %}
+        <tr>
+   </thead> 
+   <tbody>
+{% for emp in object_list %}
+    
+        <tr><td>  {{ emp.airline_id }}            </td> 
+            <td>  {{ emp.airline_name }}          </td> 
+            <td>  {{ emp.airline_emp_count }}     </td> 
+            <td>  {{ emp.airline_flight_count }}  </td> 
+
+            {% if user.is_superuser %}
+            <td> <a href="{{emp.get_absolute_url}}"> Details </a></td>
+
+            {% endif %}
+        </tr>
+  
+{% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock content %}

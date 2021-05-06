@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load auth_extras %}
+{% block content %}
+
+
+<h1>All flights</h1>
+<form class="add_your_class" method="GET" action="" >
+    <input class="add_your_class" type="search" name="search"> 
+    <button class="add_your_class" type="submit"> Search </button>
+</form>
+
+<div>
+    {% for result in all_search_results %}
+        <p>search</p>
+    {% empty %}
+        <p>no result</p>
+    {% endfor %}
+</div>
+<div class="table-responsive" id="sortMe">
+<table class="table table-hover ">
+    <thead class="thead-dark">
+        <th>flight Code </th>
+        <th>Airline</th>
+        <th>Source </th>
+        <th>Destination </th>
+        <th>Schedule</th>
+        <th>Arrival/Departure</th>
+        <th>Delay</th>
+        <th>Gate Number</th>
+        <th>time dff</th>
+
+    </thead>
+
+{% for flt in flight_list %}
+    <tbody>
+        <tr><td>  
+            {% if request.user|has_group:"ATC-Group" or user.is_superuser %} 
+              <a id= "flt-details" href="{{flt.get_absolute_url}}" > {{ flt.flight_id }}     </a> 
+            {% else %}                
+                {{ flt.flight_id }}                 
+            {% endif %}               </td> 
+            <td>  {{ flt.flight_airline.airline_name }}    </td> 
+            <td>  {{ flt.flight_source }}                  </td> 
+            <td>  {{ flt.flight_destination }}             </td> 
+            <td>    {% if flt.get_type is not None %}    
+                        {{ flt.flight_arrival }} 
+                    {% else %}
+                        {{ flt.flight_departure }} 
+                    {% endif %}                            </td>
+
+
+            <td>    {% if  flt.get_type  is None %}    
+                        Departure
+                    {% elif flt.get_type is not None %}     
+                        Arrival 
+                    {% endif %}                            </td>                
+            <td>  {{ flt.flight_delay }}                   </td>
+            <td>  {{ flt.flight_gate }}                    </td>
+            <td>{{flt.time_diff }}</td>
+        </tr>
+        
+{% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock content %}

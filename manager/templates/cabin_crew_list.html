@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Cabin Crew List</h1>
+    <div class="table-responsive">
+    <table class="table table-hover ">
+        <thead class="thead-dark">
+            <th>Employee Code </th>
+            <th>Employee Name</th>
+            <th>Airline</th>
+            <th>Employee Age </th>
+            <th>Contact</th>
+        </thead>
+    
+    {% for flt in cabin_crew_list %}
+        <tbody>
+            <tr><td>  {{ flt.crew_member_id }}      </td> 
+                <td>  {{ flt.crew_member_name }}    </td> 
+                <td>  {{ flt.crew_member_airline.airline_name }}     </td> 
+                <td>  {{ flt.crew_member_age }}     </td> 
+                <td>  {{ flt.crew_member_contact }}   </td> 
+            </tr>
+            
+    {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock content %}
+

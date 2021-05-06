@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load auth_extras %}
+
+{% block content %}
+
+{% if request.user|has_group:"ATC-Group" or user.is_superuser %} 
+
+<h1>All Pilots</h1>
+<div class="table-responsive">
+<table class="table table-hover ">
+    <thead class="thead-dark">
+        <th>Pilot <Code></th>
+        <th>Pilot Name</th>
+        <th>Pilot Sex</th>
+        <th>Pilot Age</th>
+        <th>Airline</th>
+        <th>Contact</th>
+    </thead>
+
+{% for emp in pilot_list %}
+    <tbody>
+        <tr><td> <a href="{{emp.get_absolute_url}} ">{{ emp.pilot_id }}</a>       </td> 
+            <td>  {{ emp.pilot_name }}    </td> 
+            <td>  {{ emp.pilot_sex }}     </td> 
+            <td>  {{ emp.pilot_age }}     </td> 
+            <td>  {{ emp.pilot_airline.airline_name }}   </td> 
+            <td>  {{ emp.pilot_contact }} </td> 
+        </tr>
+        
+{% endfor %}
+    </tbody>
+</table>
+</div>
+
+ 
+    {% else %}
+        <h3>Unauthorised Access</h3>
+        <a href="{% url 'login' %}"> Login </a>
+    {% endif %}
+
+{% endblock content %}

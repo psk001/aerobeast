@@ -1,0 +1,112 @@
+{% extends 'base.html' %} 
+{% load auth_extras %}
+
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+
+{% block content %}
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">WE are</span> aeroBeast</h1>
+    <p>Airport Managment service</p>
+    <img src="logo_prev_ui.png"  class="w3-image" >
+  </header>
+  <div class="col-2"> <h1 id="time"></h1></div>
+  <div class="col-6"style="color: #05011b;"> 
+    <a class="weatherwidget-io" href="https://forecast7.com/en/28d6177d21/new-delhi/" data-label_1="NEW DELHI" data-label_2="WEATHER" data-icons="Climacons Animated" data-mode="Current" data-days="3" data-theme="dark" >NEW DELHI WEATHER</a>
+  
+</div>
+  <h2 class="w3-text-light-grey">FLIGHTS</h2>
+  <hr style="width:200px" class="w3-opacity">
+ 
+  <!-- Grid for FLIGHT tables -->
+  <h3 class="w3-padding-16 w3-text-light-grey">arrival/departure</h3>
+  <div class="w3-row-padding" style="margin:0 -16px">
+    <div class="w3-half w3-margin-bottom">
+      <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+        <li class="w3-dark-grey w3-xlarge w3-padding-32">ARRIVAL</li>
+        <li class="w3-padding-16">FLIGHT 1</li>
+        <li class="w3-padding-16">FLIGHT 2</li>
+        <li class="w3-padding-16">FLIGHT 3</li>
+        <li class="w3-padding-16">FLIGHT 4</li>
+       
+      </ul>
+    </div>
+
+    <div class="w3-half">
+      <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+        <li class="w3-dark-grey w3-xlarge w3-padding-32">DEPARTURE</li>
+        <li class="w3-padding-16">DEPARTURE_FLIGHT_1</li>
+        <li class="w3-padding-16">DEPARTURE_FLIGHT_2</li>
+        <li class="w3-padding-16">DEPARTURE_FLIGHT_3</li>
+        <li class="w3-padding-16">DEPARTURE_FLIGHT_4</li>
+        
+      </ul>
+    </div>
+  <!-- End FLIGHT tables -->
+  </div>
+  
+  
+
+  
+  
+<!-- End covid ruels Section -->
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey">Passenger Instructions</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>Ensure to carry all the necessary documents. Abide by the baggage guidelines of the Airline which you’re travelling. 
+        Ensure you reach the Airport at least 2 /3 hours prior to the scheduled departure of the Aeroplane as required by the Airlines.
+         Boarding gates close about 30 minutes prior to the departure time(Check with your airline for exact timings). 
+         After reaching the final gate of the Airline, wait in the boarding area to board the flight. 
+         Once the final check of your boarding pass is done you will be aboard the flight, check your seat and relax. Voila, Here you go now! enjoy your downtime until you reach your destination.
+    </p>
+  <!-- End About Section -->
+  </div>
+  
+  <!-- covid rules Section -->
+  <div class="w3-padding-64 w3-content" id="COVID">
+    <h2 class="w3-text-light-grey">COVID RULES</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>In view of the surge in number of COVID-19 cases, random sample collection will be done for passengers arriving from states where there has been a spurt in number for COVID-19 cases. 
+        Passengers will be allowed to exit after sample collection. Thermal screening will be done for all passengers upon arrival. 
+        All passengers must download Aarogya Setu App. Carry RT-PCR negative report from ICMR accredited labs done within last 72hours.
+         Please also check the state specific guidelines issued by the state government of the destination airport. 
+         Meals will not be served on flights of less than 2 hours in duration as per Govt. rules.
+    </p>
+ <!-- End covid ruels Section -->
+  </div>
+ <!-- FLIGHTS Section -->
+
+  <!-- Contact Section -->
+  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <h2 class="w3-text-light-grey">Contact US</h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> NEW Delhi,INDIA</p>
+      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +82 827272</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: quaries.@aerobeast.ac.in</p>
+    </div><br>
+
+  <!-- End Contact Section -->
+  </div>
+  
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+     <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+{% endblock content %}
