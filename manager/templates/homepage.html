@@ -83,7 +83,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 		</a>
   
 		<a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-			<i class="fa fa-envelope w3-xxlarge"></i>
+			<i class="fas fa-map-marked w3-xxlarge"></i>
 			<p>Passenger Instructions</p>
 		</a>
 
@@ -108,7 +108,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- Page Content -->
 {% if user.is_superuser  %}
 <div class="login-admin">
-    <a href="{% url 'admin:index'} " class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="{% url 'admin:index' %} " class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fas fa-tachometer-alt w3-xxlarge"></i>
       <p>My Dashboard</p>
     </a>
