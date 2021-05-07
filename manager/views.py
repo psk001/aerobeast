@@ -24,12 +24,12 @@ class PilotList(LoginRequiredMixin, ListView):
     context_object_name = 'pilot_list'
 
 
-class PilotDetailView(DetailView):
+class PilotDetailView(LoginRequiredMixin, DetailView):
     model = Pilot
     template_name = 'pilot_detail.html'
     context_object_name = 'pilot_list'
 
-class PilotSortedView(ListView):
+class PilotSortedView(LoginRequiredMixin, ListView):
     model = Pilot
     template_name = 'pilot_detail.html'
     context_object_name = 'pilot_list'
@@ -37,7 +37,8 @@ class PilotSortedView(ListView):
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', 'pilot_age')
         # validate ordering here
-        return ordering   
+        if True:
+            return ordering   
 
 class FlightList(ListView):
     model = Flight  
@@ -46,7 +47,7 @@ class FlightList(ListView):
     paginate_by = 50
 
 
-class FlightDetailView(DetailView):
+class FlightDetailView(LoginRequiredMixin, DetailView):
     model = Flight
     template_name = 'flight_detail.html'
     context_object_name = 'flight_list'
@@ -56,13 +57,13 @@ class AirlineDetailView(DetailView):
     model = Airline
     template_name = 'airline_detail.html'
 
-class Security(ListView):
+class Security(LoginRequiredMixin, ListView):
     model = GroundStaff
     template_name = 'ground_staff_list.html'
     context_object_name = 'ground_staff_list'
     paginate_by = 50
 
-class CabinCrewList(ListView):
+class CabinCrewList(LoginRequiredMixin, ListView):
     model = CrewMembers
     template_name = 'cabin_crew_list.html'
     context_object_name = 'cabin_crew_list'
