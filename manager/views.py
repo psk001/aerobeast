@@ -1,6 +1,6 @@
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Aircraft, Airline, Pilot, Flight, CrewMembers, GroundStaff, PilotRoster
@@ -29,12 +29,21 @@ class PilotDetailView(DetailView):
     template_name = 'pilot_detail.html'
     context_object_name = 'pilot_list'
 
-    
+class PilotSortedView(ListView):
+    model = Pilot
+    template_name = 'pilot_detail.html'
+    context_object_name = 'pilot_list'
+
+    def get_ordering(self):
+        ordering = self.request.GET.get('ordering', 'pilot_age')
+        # validate ordering here
+        return ordering   
 
 class FlightList(ListView):
     model = Flight  
     template_name = 'flight_list.html' 
     context_object_name = 'flight_list'
+    paginate_by = 50
 
 
 class FlightDetailView(DetailView):
@@ -51,11 +60,13 @@ class Security(ListView):
     model = GroundStaff
     template_name = 'ground_staff_list.html'
     context_object_name = 'ground_staff_list'
+    paginate_by = 50
 
 class CabinCrewList(ListView):
     model = CrewMembers
     template_name = 'cabin_crew_list.html'
     context_object_name = 'cabin_crew_list'
+    paginate_by = 50
 
 class SearchView(ListView):
     model = Flight
