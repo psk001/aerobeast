@@ -1,7 +1,11 @@
  
-body{
+*{
     margin: 0%;
     padding: 0%;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins';
 }
 .box11{
     background-image: url(/root/images/aeroplane.png);
@@ -108,4 +112,58 @@ body{
         font-size: 10px;
     }
 }
-   
+
+/* flight_detail.html */
+.container_fluid.flight_detail{
+    background-color: #222255;
+    color: #DBE9EC;
+}
+.aerobeast img {
+    height: 100px;
+}
+
+.nav-link {
+    font-size: 1.25rem;
+    color: #DBE9EC;
+}
+
+.name {
+    font-size: 4rem;
+    color: #222255;
+    border-radius: 8px;
+    background-color: #DBE9EC;
+    text-align: center;
+}
+
+caption {
+    color: #DBE9EC;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.details {
+    border-radius: 30px;
+    margin: 2rem;
+}
+
+th,
+td {
+    color: #DBE9EC;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.center-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    background-color: #DBE9EC;
+    border-radius: 10px;
+    padding: .5rem;
+}
