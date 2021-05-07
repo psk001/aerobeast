@@ -13,6 +13,8 @@ import django_heroku
 from pathlib import Path
 import os
 import dj_database_url 
+import psycopg2
+
 #from dotenv import load_dotenv 
 #import environ 
 
@@ -110,6 +112,10 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -175,8 +181,6 @@ LOGOUT_REDIRECT_URL = 'home' #
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
 
 django_heroku.settings(locals())
 
