@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load auth_extras %}
 
 {% block content %}
+
 <a href= "{% url 'pilots' %} "> 
     <div class="card">
         <div class="card-header">Pilots</div>
