@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% if user.is_superuser or request.user|has_group:"Pilot-Group" or request.user|has_group:"ATC-Group" %} 
+{% if user.is_superuser or request.user|has_group:"ATC-Group" %} 
 
 <h1>All Pilots</h1>
 <div class="table-responsive">
@@ -35,7 +35,7 @@
 
  
     {% else %}
-        <h3>Unauthorised Access</h3>
+        <h3 style="color: red;">Unauthorised Access</h3>
         <a href="{% url 'login' %}"> Login </a>
     {% endif %}
 

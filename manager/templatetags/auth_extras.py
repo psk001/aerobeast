@@ -12,7 +12,3 @@ def has_group(user, group_name):
 def has_group2(user, group_name): 
     group = Group.objects.get(name='Pilot-Group') 
     return True if group in user.groups.all() else False
-
-# @register.filter
-# def get_type(value):
-#     return type(value)
