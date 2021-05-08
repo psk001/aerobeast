@@ -35,7 +35,7 @@
         <div class="card-footer">All flights from/to the airport</div>
     </div>    
  
-    {% if user.is_superuser or request.user|has_group: "ATC-Group" or request.user|has_group2: "Pilot-group" %}
+    {% if user.is_superuser or request.user|has_group: "ATC-Group" or request.user|has_group2: "Pilot-Group" %}
 
     <div class="card">
         <div class="card-header">Cabin Crew</div>
