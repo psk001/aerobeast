@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% if request.user|has_group: "Pilot-Group" %} 
+{% if request.user|has_group:"Pilot-Group" %}
         <a href= "{% url 'pilots' %} "> 
             <div class="card">
                 <div class="card-header">Pilots</div>
@@ -17,7 +17,7 @@
             </div>
         </a>    
 
-        <a href="{% url 'airlines' %} ">
+        <a href="{% url 'airline' %} ">
             <div class="card">
                 <div class="card-header">Airlines</div>
                 <div class="card-body bg-info">
@@ -37,7 +37,7 @@
             </div>    
         </a>
 
-        {% if request.user|has_group:"ATC-Group" % }
+        {% if request.user|has_group:"ATC-Group" %}
             <a href="{% url 'cabin-crew' %} ">
                 <div class="card">
                     <div class="card-header">Cabin Crew</div>
@@ -58,7 +58,7 @@
                 </div>
             </a>
 
-            <a href="{% url 'aircraft' %} ">
+            <a href="{% url 'aircrafts' %} ">
                 <div class="card">
                     <div class="card-header">Aircarfts</div>
                     <div class="card-body bg-info">
@@ -69,6 +69,5 @@
             </a>         
         {% endif %}
 
-    {% endif %}
-
+    {% endif %}    
 {% endblock content %}

@@ -1,9 +1,8 @@
 
 from django.contrib import admin
-from .models import  Aircraft, Airline, Pilot, Flight, PilotRoster
+from .models import  Aircraft, Airline, Pilot, Flight, PilotRoster, CrewMembers, GroundStaff
 
-# Register your models here.
 
-userModels = [ Aircraft, Airline, Pilot, Flight, PilotRoster]
+userModels = [ Aircraft, Airline, Pilot, Flight, PilotRoster, CrewMembers, GroundStaff]
 admin.site.register(userModels)
 

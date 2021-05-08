@@ -45,7 +45,6 @@ class FlightList(ListView):
     model = Flight  
     template_name = 'flight_list.html' 
     context_object_name = 'flight_list'
-    paginate_by = 50
 
 
 class FlightDetailView(LoginRequiredMixin, DetailView):
@@ -62,13 +61,12 @@ class Security(LoginRequiredMixin, ListView):
     model = GroundStaff
     template_name = 'ground_staff_list.html'
     context_object_name = 'ground_staff_list'
-    paginate_by = 50
+
 
 class CabinCrewList(LoginRequiredMixin, ListView):
     model = CrewMembers
     template_name = 'cabin_crew_list.html'
     context_object_name = 'cabin_crew_list'
-    paginate_by = 50
 
 class SearchView(ListView):
     model = Flight
@@ -85,7 +83,12 @@ class SearchView(ListView):
     #        result = None
     #    return result
 
+class AircraftList(ListView):
+    model=Aircraft
+    template_name='aircraft_list.html'
+    context_object_name = 'aircraft_list'
 
-class DashboardView(LoginRequiredMixin, DetailView):
-    model = Flight
-    template_name='dashboard.html'
+
+def DashboardView(request):
+    return render(request, 'dashboard.html')
+    
