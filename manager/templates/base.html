@@ -6,9 +6,8 @@
 	<title>{% block title %}{% endblock %}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="{% static 'css/base.css' %}" rel="stylesheet">
-	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}" >
 	<link rel="icon" href="{% url 'images/logo.png'}" type="image/png">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -29,10 +28,7 @@
 		
 		/* Remove margins from "page content" on small screens */
 		@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-	</style>
-	{% block mycss %} 
-	{% endblock mycss %}
-   
+	</style>   
 </head>
 <body >
 
