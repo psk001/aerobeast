@@ -4,7 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Aircraft, Airline, Pilot, Flight, CrewMembers, GroundStaff, PilotRoster
-#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 
 # Create your views here.
@@ -84,5 +85,6 @@ class SearchView(ListView):
     #        result = None
     #    return result
 
-class DashboardView(LoginRequiredMixin, DetailView):
-    template_name='dashboard.html'
+@login_required
+def DashboardView(request):
+    render (request, 'dashboard.html')

@@ -114,7 +114,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <p>My Dashboard</p>
     </a>
 
-
+  {% elif request.user|has_group: "ATC-Group" or request.user|has_group: "Pilot-group" %}
+    <a href="{% url 'dashboard' %} " class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fas fa-tachometer-alt w3-xxlarge"></i>
+      <p>My Dashboard</p>
+    </a>
 
   {% else %}
     <p></p>
@@ -205,14 +209,14 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <div class="w3-section">
       <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> New Delhi,INDIA</p>
       <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +82 827272</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: quaries@aerobeast.ac.in</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: queries@aerobeast.ac.in</p>
     </div><br>
 
   <!-- End Contact Section -->
   </div>
   
     <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge" id="main">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
     <i class="fa fa-snapchat w3-hover-opacity"></i>
