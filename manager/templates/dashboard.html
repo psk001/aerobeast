@@ -35,8 +35,6 @@
         <div class="card-footer">All flights from/to the airport</div>
     </div>    
  
-    {% for group_for in request.user.groups.all %}
-    {% if group_for.name == 'ATC-Group' %}
     <div class="card">
         <div class="card-header">Cabin Crew</div>
         <div class="card-body bg-info">
@@ -67,9 +65,5 @@
         <div class="card-footer">All aircrafts that are registered</div>
     </div>    
         
-
-    {% endif %}
-{% endfor %}
-
 
 {% endblock content %}
