@@ -83,3 +83,6 @@ class SearchView(ListView):
     #    else:
     #        result = None
     #    return result
+
+class DashboardView(LoginRequiredMixin, DetailView):
+    template_name='dashboard.html'

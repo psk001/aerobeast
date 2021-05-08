@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import  HomeView, AirlineList, PilotList, FlightList, PilotDetailView, FlightDetailView,  AirlineDetailView, CabinCrewList, Security
+from .views import  HomeView, DashboardView, AirlineList, PilotList, FlightList, PilotDetailView, FlightDetailView,  AirlineDetailView, CabinCrewList, Security
 #import views
 
 urlpatterns = [
       #  path('admin/', admin.site.urls),
+        path('dashborad/', DashboardView.as_view(), name='dashboard'),
         path('airlines/', AirlineList.as_view(), name='airline'),
         path('flights/', FlightList.as_view(), name='flights'),
         path('pilots/', PilotList.as_view(), name='pilots'),
