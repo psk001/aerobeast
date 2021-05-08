@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+    <title>{{flight_list.flight_id}}</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-color: #222255;
+        }
+        #aerobeast{
+            font-size: 50px;
+            color:#DBE9EC ;
+            margin-left: 5%;
+        }
+        ul{
+            margin-left: 80%;
+            margin-top: -3%;
+        }
+        ul li{
+            display: inline;
+            float: left;
+            margin-left: 10%;
+           
+        }
+        li a{
+            color:#DBE9EC ;
+            text-decoration: none;
+            font-size: 30px;
+            
+        }
+        #name{
+            font-size: 40px;
+            color:#222255 ;
+            border-radius: 8px;
+           background-color: #DBE9EC;
+           width: 30%;
+           text-align: center;
+           margin: 5% auto 0 auto;
+        }
+        .arrivals{
+            width: 95%;
+            margin: 2% auto;
+        }
+       #source_name{
+           color: #DBE9EC;
+           font-size: 60px;
+       }
+       #destination_name{
+           color: #DBE9EC;
+           font-size: 60px;
+       }
+       #source{
+           width: 50%;
+           background-color: rgb(0,0,0,0.7);
+           float: left;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-bottom-left-radius: 30px;
+       }
+       #destination{
+           width: 50%;
+           background-color: rgb(0,0,0,0.7);
+           float: left;
+           text-align: center;
+           border-bottom-right-radius: 30px;
+           border-top-right-radius: 30px;
+       }
+       p{
+           margin: 3vh 0 3vh 0;
+           color: #DBE9EC;
+           font-size: 30px;
+       }
+       .details{
+           width: 95%;
+           margin: 0 auto;
+       }
+       #left{
+        width: 50%;
+        background-color: rgb(0,0,0,0.7);
+           float: left;
+           text-align: center;
+           margin-top: 3%;
+           padding: 1.7% 0 1.7% 0;
+           border-top-left-radius: 30px;
+           border-bottom-left-radius: 30px;
+       }
+       #right{
+        width: 50%;
+           background-color: rgb(0,0,0,0.7);
+           float: left;
+           text-align: center;
+           margin-top: 3%;
+           border-bottom-right-radius: 30px;
+           border-top-right-radius: 30px;
+       }
+       #back{
+           text-decoration: none;
+           color: black;
+           font-size: 40px;
+           background-color: #DBE9EC;
+           border-radius: 10px;
+           margin-left: 5%;
+       }
+
+    </style>
+</head>
+<body>
+    <div id="aerobeast">
+        <h1>aeroBeast</h1>
+    </div>
+
+    <div class="contact">
+        <ul>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="#">CONTACT US</a></li>
+            
+        </ul>
+    </div>
+    <div id="name"><h2>{{flight_list.flight_id}}</h2></div>
+    <a id="back" href="#">&#8592;Back</a>
+    <div class="arrivals">
+        
+        <div id="source">
+            <div id="source_name">{{flight_list.flight_source}}</div>
+            <div class="source_details">
+                <p>{{flight_list.flight_departure}}</p>
+                <p>Actual</p>
+            </div>
+        </div>
+        <div id="destination">
+            <div id="destination_name">Bangalore</div>
+            <div class="destination_details">
+                <p>schedelud</p>
+                <p>Actual</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="details">
+        <div id="left">
+            <p>Calibrated Altitude</p>
+            <p>Speed </p>
+            <p>Runway used </p>
+            <p>Gate number </p>
+        </div>
+        <div id="right">
+            <p>Captain</p>
+            <p>Pilot-in-charge</p>
+            <p>Co-pilot </p>
+            <p>Cabin Service Director</p>
+            <p>Purser </p>
+        </div>
+    </div>
+</body>
+</html>

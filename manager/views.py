@@ -85,6 +85,6 @@ class SearchView(ListView):
     #        result = None
     #    return result
 
-@login_required
-def DashboardView(request):
-    render (request, 'dashboard.html')
+
+class DashboardView(LoginRequiredMixin, DetailView):
+    template_name='dashboard.html'

@@ -4,7 +4,7 @@ from .views import  HomeView, DashboardView, AirlineList, PilotList, FlightList,
 
 urlpatterns = [
       #  path('admin/', admin.site.urls),
-        path('dashboard/', DashboardView, name='dashboard'),
+        path('dashboard/', DashboardView.as_view, name='dashboard'),
         path('airlines/', AirlineList.as_view(), name='airline'),
         path('flights/', FlightList.as_view(), name='flights'),
         path('pilots/', PilotList.as_view(), name='pilots'),
