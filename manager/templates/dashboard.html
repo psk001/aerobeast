@@ -5,69 +5,7 @@
 
 {% block content %}
 
-    {% if user.is_superuser or request.user|has_group:"Pilot-Group" %} 
-        <a href= "{% url 'pilots' %} "> 
-            <div class="card">
-                <div class="card-header">Pilots</div>
-                <div class="card-body bg-info">
-                    <img src="{% static 'images/pilot.png' %}" alt="pilot images">
-                </div>
-                <div class="card-footer">All Available pilots with the airport</div>
-            </div>
-        </a>    
+   <p>hello </p>
 
-        <a href="{% url 'airlines' %} ">
-            <div class="card">
-                <div class="card-header">Airlines</div>
-                <div class="card-body bg-info">
-                    <img src="{% static 'images/airline.png' %}" alt="airline image">
-                </div>
-                <div class="card-footer">All connected airlines with the airport</div>
-            </div>
-        </a>
-
-        <a href="{% url 'flights' %} ">
-            <div class="card">
-                <div class="card-header">Flights</div>
-                <div class="card-body bg-info">
-                    <img src="{% static 'images/flight.png' %}" alt="flight image">
-                </div> 
-                <div class="card-footer">All flights from/to the airport</div>
-            </div>    
-        </a>
-
-        {% if request.user|has_group:"ATC-Group" % }
-            <a href="{% url 'cabin-crew' %} ">
-                <div class="card">
-                    <div class="card-header">Cabin Crew</div>
-                    <div class="card-body bg-info">
-                        <img src="{% static 'images/crew.png' %}" alt="crew images">
-                    </div>
-                    <div class="card-footer">All Available cabin crew with the airport</div>
-                </div>    
-            </a>
-
-            <a href="{% url 'security' %} ">
-                <div class="card">
-                    <div class="card-header">Ground Staff</div>
-                    <div class="card-body bg-info">            
-                        <img src="{% static 'images/staff.png' %}" alt="ground staff images">
-                    </div>
-                    <div class="card-footer">All Available ground staff at the airport</div>
-                </div>
-            </a>
-
-            <a href="{% url 'aircraft' %} ">
-                <div class="card">
-                    <div class="card-header">Aircarfts</div>
-                    <div class="card-body bg-info">
-                        <img src="{% static 'images/aircraft.png' %}" alt="aircraft images">
-                    </div>
-                    <div class="card-footer">All aircrafts that are registered</div>
-                </div> 
-            </a>         
-        {% endif %}
-
-    {% endif %}
 
 {% endblock content %}
