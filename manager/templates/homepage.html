@@ -109,13 +109,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <div class="login-admin">
   {% if user.is_superuser  %}
-    <a href="{% url 'admin:index' %} " class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href= "{% url 'admin:index' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fas fa-tachometer-alt w3-xxlarge"></i>
       <p>My Dashboard</p>
     </a>
 
-  {% elif request.user|has_group: "ATC-Group" or request.user|has_group: "Pilot-group" %}
-    <a href="{% url 'dashboard' %} " class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  {% elif request.user|has_group: "ATC-Group" or request.user|has_group2: "Pilot-group" %}
+    <a href= "{% url 'dashboard' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fas fa-tachometer-alt w3-xxlarge"></i>
       <p>My Dashboard</p>
     </a>
