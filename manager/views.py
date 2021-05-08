@@ -87,4 +87,5 @@ class SearchView(ListView):
 
 
 class DashboardView(LoginRequiredMixin, DetailView):
+    model = Flight
     template_name='dashboard.html'

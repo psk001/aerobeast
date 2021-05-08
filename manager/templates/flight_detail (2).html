@@ -1,111 +1,7 @@
 {% extends 'base.html' %}
-    <title>{{flight_list.flight_id}}</title>
-    <style>
-        *{
-            margin: 0%;
-            padding: 0%;
-        }
-        body{
-            background-color: #222255;
-        }
-        #aerobeast{
-            font-size: 50px;
-            color:#DBE9EC ;
-            margin-left: 5%;
-        }
-        ul{
-            margin-left: 80%;
-            margin-top: -3%;
-        }
-        ul li{
-            display: inline;
-            float: left;
-            margin-left: 10%;
-           
-        }
-        li a{
-            color:#DBE9EC ;
-            text-decoration: none;
-            font-size: 30px;
-            
-        }
-        #name{
-            font-size: 40px;
-            color:#222255 ;
-            border-radius: 8px;
-           background-color: #DBE9EC;
-           width: 30%;
-           text-align: center;
-           margin: 5% auto 0 auto;
-        }
-        .arrivals{
-            width: 95%;
-            margin: 2% auto;
-        }
-       #source_name{
-           color: #DBE9EC;
-           font-size: 60px;
-       }
-       #destination_name{
-           color: #DBE9EC;
-           font-size: 60px;
-       }
-       #source{
-           width: 50%;
-           background-color: rgb(0,0,0,0.7);
-           float: left;
-           text-align: center;
-           border-top-left-radius: 30px;
-           border-bottom-left-radius: 30px;
-       }
-       #destination{
-           width: 50%;
-           background-color: rgb(0,0,0,0.7);
-           float: left;
-           text-align: center;
-           border-bottom-right-radius: 30px;
-           border-top-right-radius: 30px;
-       }
-       p{
-           margin: 3vh 0 3vh 0;
-           color: #DBE9EC;
-           font-size: 30px;
-       }
-       .details{
-           width: 95%;
-           margin: 0 auto;
-       }
-       #left{
-        width: 50%;
-        background-color: rgb(0,0,0,0.7);
-           float: left;
-           text-align: center;
-           margin-top: 3%;
-           padding: 1.7% 0 1.7% 0;
-           border-top-left-radius: 30px;
-           border-bottom-left-radius: 30px;
-       }
-       #right{
-        width: 50%;
-           background-color: rgb(0,0,0,0.7);
-           float: left;
-           text-align: center;
-           margin-top: 3%;
-           border-bottom-right-radius: 30px;
-           border-top-right-radius: 30px;
-       }
-       #back{
-           text-decoration: none;
-           color: black;
-           font-size: 40px;
-           background-color: #DBE9EC;
-           border-radius: 10px;
-           margin-left: 5%;
-       }
-
-    </style>
-</head>
-<body>
+{% block title %}Flight Details{% endblock %}
+    
+{% block content %}
     <div id="aerobeast">
         <h1>aeroBeast</h1>
     </div>
@@ -152,5 +48,4 @@
             <p>Purser </p>
         </div>
     </div>
-</body>
-</html>
+{% endblock content %}
