@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% if request.user|has_group:"ATC-Group" or user.is_superuser %} 
+{% if user.is_superuser %} 
 
 <h1>All Pilots</h1>
 <div class="table-responsive">
