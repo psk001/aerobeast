@@ -6,10 +6,10 @@
 
 {% block content %}
 
-{% if request.user|has_group:"Pilot-Group" %}
+{% if request.user|has_group:"Pilot-Group" or request.user|has_group:"ATC-Group" %}
         <a href= "{% url 'pilots' %} "> 
             <div class="card">
-                <div class="card-header">Pilots</div>
+                <div class="card-header"> <h2> Pilots </h2> </div>
                 <div class="card-body bg-info">
                     <img src="{% static 'images/pilot.png' %}" alt="pilot images">
                 </div>
@@ -19,7 +19,7 @@
 
         <a href="{% url 'airline' %} ">
             <div class="card">
-                <div class="card-header">Airlines</div>
+                <div class="card-header"> <h2> Airlines </h2> </div>
                 <div class="card-body bg-info">
                     <img src="{% static 'images/airline.png' %}" alt="airline image">
                 </div>
@@ -29,7 +29,7 @@
 
         <a href="{% url 'flights' %} ">
             <div class="card">
-                <div class="card-header">Flights</div>
+                <div class="card-header"> <h2> Flights </h2> </div>
                 <div class="card-body bg-info">
                     <img src="{% static 'images/flight.png' %}" alt="flight image">
                 </div> 
@@ -40,7 +40,7 @@
         {% if request.user|has_group:"ATC-Group" %}
             <a href="{% url 'cabin-crew' %} ">
                 <div class="card">
-                    <div class="card-header">Cabin Crew</div>
+                    <div class="card-header"><h2>Cabin Crew</h2></div>
                     <div class="card-body bg-info">
                         <img src="{% static 'images/crew.png' %}" alt="crew images">
                     </div>
@@ -50,7 +50,7 @@
 
             <a href="{% url 'security' %} ">
                 <div class="card">
-                    <div class="card-header">Ground Staff</div>
+                    <div class="card-header"> <h2> Staff </h2></div>
                     <div class="card-body bg-info">            
                         <img src="{% static 'images/staff.png' %}" alt="ground staff images">
                     </div>
@@ -60,7 +60,7 @@
 
             <a href="{% url 'aircrafts' %} ">
                 <div class="card">
-                    <div class="card-header">Aircarfts</div>
+                    <div class="card-header"> <h2>Aircraft </h2> </div>
                     <div class="card-body bg-info">
                         <img src="{% static 'images/aircraft.png' %}" alt="aircraft images">
                     </div>
