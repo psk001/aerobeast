@@ -45,7 +45,7 @@ class Aircraft(models.Model):
 class Pilot(models.Model):
     sex_desig_choices = [('MALE','M'), ('FEMALE','F'),('OTHERS','OTHER'),]
     marital_choices = [('MARRIED', 'Married'), ('UNMARRIED','Unmarried'),]
-    pilot_id = models.IntegerField( primary_key=True, unique=True)    
+    pilot_id = models.IntegerField(primary_key=True, unique=True)    
     pilot_name = models.CharField(max_length=100)
     pilot_airline = models.ForeignKey(Airline,
                                      on_delete = models.CASCADE,

@@ -83,6 +83,7 @@ class SearchView(ListView):
     #        result = None
     #    return result
 
+
 class AircraftList(ListView):
     model=Aircraft
     template_name='aircraft_list.html'
