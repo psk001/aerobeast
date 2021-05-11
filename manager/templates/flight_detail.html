@@ -3,32 +3,17 @@
 {% load auth_extras %}
 
 {% block content %}
-<p> flight_id: {{flight_list.flight_id}} </p>
     <p></p>
     <div class="container-fluid">
         <div class="row justify-content-around py-3">
             <div class="col-3 aerobeast">
                 <img src="images/logo.png" alt="" class="img-fluid">
             </div>
-            <div class="col-3 contact align-item-center">
-                <ul class="list-group list-group-horizontal">
-                    <li class="nav-item list-group-item">
-                        <a class="nav-link" href="#">HOME</a>
-                    </li>
-                    <li class="nav-item list-group-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
-                    </li>
-                </ul>
-            </div>
+
         </div>
         <div class="row justify-content-evenly">
-            <div class="col-1">
-                <h1>
-                    <a class="back" href="#">&#8592;&nbsp;Back</a>
-                </h1>
-            </div>
             <div class="col-5">
-                <h2 class="name">VISTARA AXE-667</h2>
+                <h2 class="name">{{flight_list.flight_name}} {{flight_list.flight_id}} </h2>
             </div>
         </div>
         <div class="row details" style="background-color: rgb(0, 0, 0, 0.7);">
