@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load auth_extras %}
+{% block title %} My Dashboard {% endblock %}
+{% load static %}
+
+{% block content %}
+
+{% if request.user|has_group:"Pilot-Group" or request.user|has_group:"ATC-Group" %}
+        <a href= "{% url 'pilots' %} "> 
+            <div class="card">
+                <div class="card-header"> <h2> Pilots </h2> </div>
+                <div class="card-body bg-info">
+                    <img src="{% static 'images/pilot.png' %}" alt="pilot images">
+                </div>
+                <div class="card-footer">All Available pilots with the airport</div>
+            </div>
+        </a>    
+
+        <a href="{% url 'airline' %} ">
+            <div class="card">
+                <div class="card-header"> <h2> Airlines </h2> </div>
+                <div class="card-body bg-info">
+                    <img src="{% static 'images/airline.png' %}" alt="airline image">
+                </div>
+                <div class="card-footer">All connected airlines with the airport</div>
+            </div>
+        </a>
+
+        <a href="{% url 'flights' %} ">
+            <div class="card">
+                <div class="card-header"> <h2> Flights </h2> </div>
+                <div class="card-body bg-info">
+                    <img src="{% static 'images/flight.png' %}" alt="flight image">
+                </div> 
+                <div class="card-footer">All flights from/to the airport</div>
+            </div>    
+        </a>
+
+        {% if request.user|has_group:"ATC-Group" %}
+            <a href="{% url 'cabin-crew' %} ">
+                <div class="card">
+                    <div class="card-header"><h2>Cabin Crew</h2></div>
+                    <div class="card-body bg-info">
+                        <img src="{% static 'images/crew.png' %}" alt="crew images">
+                    </div>
+                    <div class="card-footer">All Available cabin crew with the airport</div>
+                </div>    
+            </a>
+
+            <a href="{% url 'security' %} ">
+                <div class="card">
+                    <div class="card-header"> <h2> Staff </h2></div>
+                    <div class="card-body bg-info">            
+                        <img src="{% static 'images/staff.png' %}" alt="ground staff images">
+                    </div>
+                    <div class="card-footer">All Available ground staff at the airport</div>
+                </div>
+            </a>
+
+            <a href="{% url 'aircrafts' %} ">
+                <div class="card">
+                    <div class="card-header"> <h2>Aircraft </h2> </div>
+                    <div class="card-body bg-info">
+                        <img src="{% static 'images/aircraft.png' %}" alt="aircraft images">
+                    </div>
+                    <div class="card-footer">All aircrafts that are registered</div>
+                </div> 
+            </a>         
+        {% endif %}
+
+    {% endif %}    
+{% endblock content %}

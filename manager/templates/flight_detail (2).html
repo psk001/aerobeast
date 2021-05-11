@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Flight Details{% endblock %}
+    
+{% block content %}
+    <div id="aerobeast">
+        <h1>aeroBeast</h1>
+    </div>
+
+    <div class="contact">
+        <ul>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="#">CONTACT US</a></li>
+            
+        </ul>
+    </div>
+    <div id="name"><h2>{{flight_list.flight_id}}</h2></div>
+    <a id="back" href="#">&#8592;Back</a>
+    <div class="arrivals">
+        
+        <div id="source">
+            <div id="source_name">{{flight_list.flight_source}}</div>
+            <div class="source_details">
+                <p>{{flight_list.flight_departure}}</p>
+                <p>Actual</p>
+            </div>
+        </div>
+        <div id="destination">
+            <div id="destination_name">Bangalore</div>
+            <div class="destination_details">
+                <p>schedelud</p>
+                <p>Actual</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="details">
+        <div id="left">
+            <p>Calibrated Altitude</p>
+            <p>Speed </p>
+            <p>Runway used </p>
+            <p>Gate number </p>
+        </div>
+        <div id="right">
+            <p>Captain : </p>
+            <p>Cabin Service Director</p>
+            <p>Purser </p>
+        </div>
+    </div>
+{% endblock content %}

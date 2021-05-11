@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-
+{% block title %}Pilot list {% endblock %}
 {% load auth_extras %}
 
 {% block content %}
 
-{% if request.user|has_group:"ATC-Group" or user.is_superuser %} 
+{% if user.is_superuser or request.user|has_group:"ATC-Group" or request.user|has_group:"Pilot-Group" %} 
 
 <h1>All Pilots</h1>
 <div class="table-responsive">
@@ -35,7 +35,7 @@
 
  
     {% else %}
-        <h3>Unauthorised Access</h3>
+        <h3 style="color: red;">Unauthorised Access</h3>
         <a href="{% url 'login' %}"> Login </a>
     {% endif %}
 

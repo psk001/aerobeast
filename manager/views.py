@@ -1,10 +1,11 @@
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Aircraft, Airline, Pilot, Flight, CrewMembers, GroundStaff, PilotRoster
-#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 
 # Create your views here.
@@ -24,12 +25,21 @@ class PilotList(LoginRequiredMixin, ListView):
     context_object_name = 'pilot_list'
 
 
-class PilotDetailView(DetailView):
+class PilotDetailView(LoginRequiredMixin, DetailView):
     model = Pilot
     template_name = 'pilot_detail.html'
     context_object_name = 'pilot_list'
 
-    
+class PilotSortedView(LoginRequiredMixin, ListView):
+    model = Pilot
+    template_name = 'pilot_detail.html'
+    context_object_name = 'pilot_list'
+
+    def get_ordering(self):
+        ordering = self.request.GET.get('ordering', 'pilot_age')
+        # validate ordering here
+        if True:
+            return ordering   
 
 class FlightList(ListView):
     model = Flight  
@@ -37,7 +47,7 @@ class FlightList(ListView):
     context_object_name = 'flight_list'
 
 
-class FlightDetailView(DetailView):
+class FlightDetailView(LoginRequiredMixin, DetailView):
     model = Flight
     template_name = 'flight_detail.html'
     context_object_name = 'flight_list'
@@ -47,12 +57,13 @@ class AirlineDetailView(DetailView):
     model = Airline
     template_name = 'airline_detail.html'
 
-class Security(ListView):
+class Security(LoginRequiredMixin, ListView):
     model = GroundStaff
     template_name = 'ground_staff_list.html'
     context_object_name = 'ground_staff_list'
 
-class CabinCrewList(ListView):
+
+class CabinCrewList(LoginRequiredMixin, ListView):
     model = CrewMembers
     template_name = 'cabin_crew_list.html'
     context_object_name = 'cabin_crew_list'
@@ -71,3 +82,13 @@ class SearchView(ListView):
     #    else:
     #        result = None
     #    return result
+
+class AircraftList(ListView):
+    model=Aircraft
+    template_name='aircraft_list.html'
+    context_object_name = 'aircraft_list'
+
+
+def DashboardView(request):
+    return render(request, 'dashboard.html')
+    
