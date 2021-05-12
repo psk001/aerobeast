@@ -117,12 +117,12 @@ class Flight(models.Model):
     slug = models.SlugField(null=True, blank=True, unique=True)
 
     class Meta:
-        # try:
-        #     ordering = ['flight_arrival']
-        # except:
-        #     ordering = ['flight_departure']
-        # finally:
-        pass
+        try:
+            ordering = ['flight_arrival']
+        except:
+            ordering = ['flight_departure']
+        finally:
+            ordering = ['flight_id']
 
     def __str__(self):
         return str(self.flight_id) + "from " + self.flight_source + " to " + self.flight_destination 
@@ -136,14 +136,16 @@ class Flight(models.Model):
         return super().save(*args, **kwargs)
 
     def time_diff(self):
-        curr_time = datetime.now()   #number of seconds since epoch
-
-        # if self.flight_arrival:
-        #     timediff = curr_time - self.flight_arrival
-        # elif self.flight_departure:
-        #     timediff = curr_time - self.flight_departure
+        curr_time = datetime.now()  
+        
+        if self.flight_arrival:
+            timediff = (curr_time.hour*60+curr_time.minute) - (self.flight_arrival.hour*60+self.flight_arrival.minute)
+        elif self.flight_departure:
+            timediff =(curr_time.hour*60+curr_time.minute) - (self.flight_departure.hour*60+self.flight_departure.minute)
+        else:
+            timediff = 0
          
-        return (curr_time)
+        return timediff #(curr_time.hour, curr_time.minute, self.flight_departure.hour)
         
 
     def get_type(self):

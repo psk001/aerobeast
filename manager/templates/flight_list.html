@@ -29,7 +29,6 @@
         <th>Arrival/Departure</th>
         <th>Delay</th>
         <th>Gate Number</th>
-        <th>time dff</th>
 
     </thead>
 
@@ -58,11 +57,12 @@
                     {% endif %}                            </td>                
             <td>  {{ flt.flight_delay }}                   </td>
             <td>  {{ flt.flight_gate }}                    </td>
-            <td>{{flt.time_diff }}</td>
+          
         </tr>
-        
+
 {% endfor %}
     </tbody>
+
 </table>
 </div>
 

@@ -14,10 +14,19 @@ class HomeView(ListView):
     model = Flight
     template_name = 'homepage.html'      
 
+    class Meta:
+        try:
+            ordering = ['flight_arrival']
+        except:
+            ordering = ['flight_departure']
+        finally:
+            ordering = ['flight_id']
+
 class AirlineList(ListView):
     model = Airline
     template_name = 'airline_list.html'
     context_object_name = 'airline_list' 
+
 
 class PilotList(LoginRequiredMixin, ListView):
     model = Pilot
@@ -30,6 +39,7 @@ class PilotDetailView(LoginRequiredMixin, DetailView):
     template_name = 'pilot_detail.html'
     context_object_name = 'pilot_list'
 
+
 class PilotSortedView(LoginRequiredMixin, ListView):
     model = Pilot
     template_name = 'pilot_detail.html'
@@ -40,6 +50,7 @@ class PilotSortedView(LoginRequiredMixin, ListView):
         # validate ordering here
         if True:
             return ordering   
+
 
 class FlightList(ListView):
     model = Flight  
@@ -57,6 +68,7 @@ class AirlineDetailView(DetailView):
     model = Airline
     template_name = 'airline_detail.html'
 
+
 class Security(LoginRequiredMixin, ListView):
     model = GroundStaff
     template_name = 'ground_staff_list.html'
@@ -67,6 +79,7 @@ class CabinCrewList(LoginRequiredMixin, ListView):
     model = CrewMembers
     template_name = 'cabin_crew_list.html'
     context_object_name = 'cabin_crew_list'
+
 
 class SearchView(ListView):
     model = Flight
